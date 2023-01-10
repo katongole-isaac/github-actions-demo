@@ -1,0 +1,17 @@
+name: Sharing data between jobs
+run-name: ${{ github.actor }} is running this demo
+
+on: [ push ]
+
+jobs: 
+  creating-file:
+    name: creating-file
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+        echo "Am creating this file using github actions workflow." > output.log
+      - name: uploading the files to artifacts
+        uses: actions/upload-artifact@v3
+        with: 
+          name: outpu.log-file
+          path: output.log
