@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: hashcat 
         run: |
+          sudo apt install hashcat 
           hashcat --version
       - name: check status
         if: ${{ success() }}
