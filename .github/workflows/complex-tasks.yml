@@ -7,8 +7,7 @@ on: push
 jobs: 
   hashcat-version:
     name: hashcat version
-    runs-on :
-      group: ubuntu-runners
+    runs-on : ubuntu-latest
     environment: deployment_environment
     steps:
       - name: hashcat 
