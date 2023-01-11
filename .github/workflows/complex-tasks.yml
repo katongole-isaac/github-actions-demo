@@ -1,0 +1,20 @@
+# performing complex tasks
+name: Performing complex tasks
+run-name: printing hashcat version
+
+on: push
+
+jobs: 
+  hashcat-version:
+    name: hashcat version
+    runs-on :
+      group: ubuntu-runners
+    environment: deployment_environment
+    steps:
+      - name: hashcat 
+        run: |
+          apt install hashcat 
+          hashcat --version
+      - name: check status
+        if: ${{ success() }}
+        run: echo "Hash cat is installed"
